@@ -1,0 +1,44 @@
+Categories
+----------
+categoryid pk
+categoryname
+icon
+
+brands
+------
+categoryid fk
+brandid pk
+bradname
+logo
+
+products
+---------
+categoryid fk
+brandid fk
+productid pk
+productname
+image
+
+
+productdetails
+---------------
+categoryid fk
+brandid fk
+productid fk
+productdetailsid pk
+modelno
+description
+color
+price
+offerprice
+stock
+picture
+
+
+
+
+
+
+
+
+

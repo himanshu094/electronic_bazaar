@@ -1,6 +1,5 @@
 import {useState} from 'react'
 import { Grid,Button,TextField,Avatar } from "@mui/material";
-
 import { postData } from '../services/FetchNodeServices';
 import Swal from 'sweetalert2';
 import Heading from './projectComponent/Heading';
@@ -38,33 +37,30 @@ export default function Category(){
   const handleReset=()=>{
     setCategoryName('')
     setImage({bytes:'',filename:''})
-
- }
- const handleError=(error,label)=>{
- setErrors((prev)=>({...prev,[label]:error}))
- 
- }
- const validation=()=>{
-  var error=false  
-
-  if(categoryName.length==0)
-    {error=true
-      
-    handleError('Pls Input Category Name...','categoryName')
-        
-}
-  if(image.filename.length==0)  
-  {
-    error=true
-    handleError('Pls Select image...','image')
   }
 
+  const handleError=(error,label)=>{
+   setErrors((prev)=>({...prev,[label]:error}))
+  }
+
+  const validation=()=>{
+    let error=false  
+
+    if(categoryName.length==0){
+      error=true  
+      handleError('Pls Input Category Name...','categoryName')
+          
+    }
+
+    if(image.filename.length==0){
+      error=true
+      handleError('Pls Select image...','image')
+    }
+
     return error
+  }
 
- }
-
-const handleSubmit=async()=>{
-  
+const handleSubmit=async()=>{ 
   var error=validation()  
 
   if(error==false)

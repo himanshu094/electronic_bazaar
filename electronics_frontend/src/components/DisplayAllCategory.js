@@ -50,6 +50,7 @@ export default function DisplayAllCategory()
   var navigate=useNavigate()
   const [category,setCategory]=useState([]) 
   const [open,setOpen]=useState(false)
+
 /////////////////Category Edit Actions/////////////////////
 const [categoryName,setCategoryName]=useState('')
  const [image,setImage]=useState({bytes:'',filename:''})
@@ -211,26 +212,26 @@ const [categoryName,setCategoryName]=useState('')
    
      <div className={classes.box}>
         <Grid container spacing={3}>
-        <Grid item xs={12} className={classes.right} >
-        {statusBtn?<SaveCancelBtn />:<></>}
-        <Button onMouseLeave={()=>setStatusCamera(false)} onMouseEnter={()=>setStatusCamera(true)} style={{position:'relative'}} component="label" 
-                onFocus={()=>handleError(null,'image')}
-                >
-               {statusCamera?   
-               <div  style={{ bottom:10,right:10,position:'absolute',zIndex:2,background:'#f2f2f2',width:26,height:26,borderRadius:13,padding:2,display:'flex',alignItems:'center',justifyContent:'center'}}>
-               <PhotoCameraIcon style={{color:'#000'}}/>
-               </div>
-               :<></>}   
-                 <input   onChange={handleImage} hidden type="file" accept="images/*" multiple/>
+          <Grid item xs={12} className={classes.right} >
+          {statusBtn?<SaveCancelBtn />:<></>}
+            <Button onMouseLeave={()=>setStatusCamera(false)} onMouseEnter={()=>setStatusCamera(true)} style={{position:'relative'}} component="label" 
+            onFocus={()=>handleError(null,'image')}
+            >
+              {statusCamera?
 
-                 <Avatar src={image.filename} sx={{width:100,height:100}} alt='Category' variant="rounded"/>
-                </Button>
-                <div style={{color:'#d32f2f',fontSize:12,marginLeft:10,marginTop:6}}>{errors.image}</div>
+              <div  style={{ bottom:10,right:10,position:'absolute',zIndex:2,background:'#f2f2f2',width:26,height:26,borderRadius:13,padding:2,display:'flex',alignItems:'center',justifyContent:'center'}}>
+              <PhotoCameraIcon style={{color:'#000'}}/>
+              </div>
+              :<></>}  
 
-               
-               
+                <input   onChange={handleImage} hidden type="file" accept="images/*" multiple/>
 
-            </Grid>
+                <Avatar src={image.filename} sx={{width:100,height:100}} alt='Category' variant="rounded"/>
+            </Button>
+            
+              <div style={{color:'#d32f2f',fontSize:12,marginLeft:10,marginTop:6}}>{errors.image}</div>
+          </Grid>
+
             <Grid item xs={12}>
             <TextField 
             value={categoryName}
@@ -261,9 +262,9 @@ const [categoryName,setCategoryName]=useState('')
   }
 
     useEffect(function(){
-
-    fetchAllCategory()
+      fetchAllCategory()
     },[])
+    
     const handleOpen=(rowData)=>{
       setCategoryId(rowData.categoryid)
       setCategoryName(rowData.categoryname)
@@ -280,24 +281,24 @@ const [categoryName,setCategoryName]=useState('')
      setOpen(false)
   }
   const showCategoryDialog=()=>{
-     return(
+    return(
         <Dialog open={open}>
-        <DialogTitle>
-        Update Category
-        </DialogTitle>
-        <DialogContent>
-        {categoryForm()}
-        </DialogContent>
-        <DialogActions>
-    
-        <Button onClick={handleSubmit}>Edit Data</Button>  
-        <Button onClick={handleClose}>Close</Button>
-        </DialogActions>
+
+          <DialogTitle>
+            Update Category
+          </DialogTitle>
+          <DialogContent>
+          {categoryForm()}
+          </DialogContent>
+
+          <DialogActions>
+          <Button onClick={handleSubmit}>Edit Data</Button>  
+          <Button onClick={handleClose}>Close</Button>
+          </DialogActions>
+
         </Dialog>
-
-     )
-
-   }
+    )
+  }
 
 
     function displayCategory() {

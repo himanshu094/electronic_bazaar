@@ -31,23 +31,17 @@ router.get('/display_all_category',function(req,res,next){
       if(error)
       {
       res.status(200).json({status:false,message:'Database error,pls contact database admin'})
-
       }
       else
       {
         res.status(200).json({data:result,status:true,message:'Success'})
       }
-
-
     })
-}
-catch(e)
-{
-
-    res.status(200).json({status:false,message:'Server Error....'})
-}
-  
-
+  }
+  catch(e)
+  {
+      res.status(200).json({status:false,message:'Server Error....'})
+  }
 })
 
 router.post('/edit_category_data', function(req, res, next) {

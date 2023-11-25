@@ -1,8 +1,8 @@
-Categories
+Category
 ----------
 categoryid pk
 categoryname
-icon
+image
 
 brands
 ------

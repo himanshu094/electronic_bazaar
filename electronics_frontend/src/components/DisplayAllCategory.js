@@ -86,6 +86,7 @@ const [categoryName,setCategoryName]=useState('')
     return error
 
  }
+ 
  const handleDelete=(rowData)=>{
   Swal.fire({
     title: 'Are you sure?',

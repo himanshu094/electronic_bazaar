@@ -260,9 +260,7 @@ export default function DisplayAllBrands() {
                             </FormControl>
                         </Grid>
 
-                        <Grid item xs={6} className={useStyle.center}>
-                            <Button startIcon={<SaveIcon />} onClick={handleDataUpdate} variant="contained" fullWidth style={{ background: '#004cef', padding: '5% 0', fontWeight: '500' }}>Update</Button>
-                        </Grid>
+                        
                     </Grid>
                 </div>
             </div>
@@ -317,6 +315,10 @@ export default function DisplayAllBrands() {
                             {editBrand()}
                         </DialogContentText>
                     </DialogContent>
+                    <DialogActions>
+                            <Button onClick={handleDataUpdate}>Edit Data</Button>  
+                            <Button onClick={handleClose}>Close</Button>
+                    </DialogActions>
                 </Dialog>
             </div>
         );

@@ -32,6 +32,8 @@ color
 price
 offerprice
 stock
+status continue discontinue radio
+hsncode
 picture
 
 

@@ -4,6 +4,7 @@ import {Routes,Route,BrowserRouter as Router} from 'react-router-dom'
 import Brands from "./components/Brands";
 import DisplayAllBrands from "./components/DisplayAllBrands";
 import Products from "./components/Products";
+import DisplayAllProducts from "./components/DisplayAllProducts";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route element={<Brands/>} path="/brands"/>
           <Route element={<DisplayAllBrands/>} path="/displayallbrands"/>
           <Route element={<Products/>} path="/products"/>
+          <Route element={<DisplayAllProducts/>} path="/displayallproducts"/>
         </Routes>
       </Router>  
     </div>

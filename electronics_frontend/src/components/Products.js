@@ -90,7 +90,7 @@ export default function Products() {
         var error = false
         if (productName.length === 0) {
             error = true
-            handleError('Please enter brand name', 'productName')
+            handleError('Please enter product name', 'productName')
         }
         if (categoryId.length === 0) {
             error = true
@@ -102,7 +102,7 @@ export default function Products() {
         }
         if (picture.filename.length === 0) {
             error = true
-            handleError('Please select logo', 'logo')
+            handleError('Please select picture', 'logo')
         }
         return error
     }
@@ -146,7 +146,7 @@ export default function Products() {
                 <Grid container spacing={3}>
 
                     <Grid item xs={12}>
-                        <Heading  image={categoryicon} caption="New Product" link='/displayallbrands' />
+                        <Heading  image={categoryicon} caption="New Product" link='/displayallproducts' />
                     </Grid>
 
 {/* //! image ////////////////////////////////////// */}

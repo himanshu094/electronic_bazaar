@@ -1,0 +1,12 @@
+login-app/
+├── config/
+│   ├── passport.js
+├── models/
+│   ├── user.js
+├── routes/
+│   ├── auth.js
+│   ├── home.js
+├── views/
+│   ├── home.ejs
+│   ├── login.ejs
+├── app.js

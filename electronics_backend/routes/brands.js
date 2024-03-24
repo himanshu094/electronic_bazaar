@@ -20,15 +20,30 @@ router.post('/submit_brand', upload.single('logo'), function (req, res) {
     }
 })
 
+//swagger get method
+
+/**
+ * @swagger
+ * /fetch_brands:
+ *   get:
+ *     summary: Get method test endpoint
+ *     description: Use this endpoint to test if the GET method is working.
+ *     responses:
+ *       200:
+ *         description: Success response indicating the GET method is working.
+ *       400:
+ *         description: Error
+ */
+
 router.get('/fetch_brands', function (req, res) {
     try {
         pool.query('select B.*, (select C.categoryname from category C where C.categoryid = B.categoryid) as categoryname from brands B', function (error, result) {
             if (error) {
-                res.json({ status: false, message: 'Database Error!' })
+                res(400).json({ status: false, message: 'Database Error!' })
                 console.log(error)
             }
             else {
-                res.json({ status: true, data: result })
+                res(200).json({ status: true, data: result })
             }
         })
     }

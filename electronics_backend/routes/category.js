@@ -24,6 +24,18 @@ router.post('/submit_category',upload.single('image'), function(req, res, next) 
   }
 });
 
+/**
+ * @swagger
+ * /category/display_all_category:
+ *   get:
+ *     summary: Get method test endpoint
+ *     description: Use this endpoint to test if the GET method is working.
+ *     responses:
+ *       200:
+ *         description: Success response indicating the GET method is working.
+ *       400:
+ *         description: Error
+ */
 
 router.get('/display_all_category',function(req,res,next){
   try{
@@ -43,6 +55,30 @@ router.get('/display_all_category',function(req,res,next){
       res.status(200).json({status:false,message:'Server Error....'})
   }
 })
+
+/**
+ * @swagger
+ * /category/edit_category_data:
+ *   post:
+ *     summary: Test endpoint for updating category data
+ *     description: Use this endpoint to update category data.
+ *     parameters:
+ *       - name: categoryname
+ *         description: New name for the category
+ *         in: formData
+ *         required: true
+ *         type: string
+ *       - name: categoryid
+ *         description: ID of the category to be updated
+ *         in: formData
+ *         required: true
+ *         type: integer
+ *     responses:
+ *       200:
+ *         description: Success response indicating the POST method is working.
+ *       400:
+ *         description: Error
+ */
 
 router.post('/edit_category_data', function(req, res, next) {
   try{

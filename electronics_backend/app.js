@@ -12,6 +12,29 @@ var brandRouter=require('./routes/brands')
 var productRouter=require('./routes/products')
 var app = express();
 
+
+//swagger import
+var swaggerJSDoc = require('swagger-jsdoc');
+var swaggerUi = require('swagger-ui-express')
+
+//swagger option
+const option ={
+  definition:{
+    openapi:'3.0.0',
+    info:{
+      title:'Node JS API Project for mongodb',
+      version:'1.0.0'
+    },
+    servers:[
+      {
+        url:'http://localhost:5000/' // same as server port
+      }
+    ]
+  },
+  apis:['./routes/index.js','./routes/brands.js','./routes/category.js','./routes/category.js']//
+}
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -28,6 +51,11 @@ app.use('/users', usersRouter);
 app.use('/category',categoryRouter);
 app.use('/brands',brandRouter);
 app.use('/products',productRouter);
+
+//swagger routes
+const swaggerSpec = swaggerJSDoc(option)
+app.use('/api-docs',swaggerUi.serve,swaggerUi.setup(swaggerSpec))
+
 
 
 // catch 404 and forward to error handler
